@@ -6,9 +6,9 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.symetry.mailrequestshugar2.R
-import com.symetry.mailvalidator.MainActivity
-import com.symetry.mailvalidator.data.EmailService
-import com.symetry.mailvalidator.domain.EmailValidationUseCase
+import com.symetry.mailrequestshugar2.MainActivity
+import com.symetry.mailrequestshugar2.data.EmailService
+import com.symetry.mailrequestshugar2.domain.EmailValidationUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

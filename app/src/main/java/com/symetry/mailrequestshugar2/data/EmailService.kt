@@ -1,4 +1,4 @@
-package com.symetry.mailvalidator.data
+package com.symetry.mailrequestshugar2.data
 
 
 import retrofit2.Response

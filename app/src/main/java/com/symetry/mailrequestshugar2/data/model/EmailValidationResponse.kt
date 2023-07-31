@@ -1,6 +1,6 @@
-package com.symetry.mailvalidator.data.model
+package com.symetry.mailrequestshugar2.data.model
 
-import com.symetry.mailvalidator.data.EmailService
+import com.symetry.mailrequestshugar2.data.EmailService
 
 class EmailValidationUseCase(private val emailService: EmailService) {
     suspend fun validateEmail(email: String): Boolean {

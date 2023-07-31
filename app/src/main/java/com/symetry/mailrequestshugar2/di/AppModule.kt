@@ -1,6 +1,6 @@
 package com.symetry.mailvalidator.di
 
-import com.symetry.mailvalidator.data.EmailService
+import com.symetry.mailrequestshugar2.data.EmailService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
