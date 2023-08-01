@@ -37,7 +37,7 @@ class EmailValidationActivity : AppCompatActivity() {
     private fun validateEmail(email: String) {
         GlobalScope.launch(Dispatchers.Main) {
             val isValid = emailValidationUseCase.validateEmail(email)
-            val resultText = if (isValid) "Email válido" else "Email inválido"
+            val resultText = if (isValid) getString(R.string.email_valido) else getString(R.string.email_invalido)
             binding.textViewResult.text = resultText
         }
     }
