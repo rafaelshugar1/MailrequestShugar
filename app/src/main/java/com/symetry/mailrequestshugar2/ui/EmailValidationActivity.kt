@@ -6,13 +6,13 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.symetry.mailrequestshugar2.R
-import com.symetry.mailrequestshugar2.MainActivity
+import com.symetry.mailrequestshugar2.App
 import com.symetry.mailrequestshugar2.data.EmailService
 import com.symetry.mailrequestshugar2.domain.EmailValidationUseCase
+import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-
 class EmailValidationActivity : AppCompatActivity() {
     private lateinit var emailValidationUseCase: EmailValidationUseCase
 
@@ -20,7 +20,7 @@ class EmailValidationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_email_validation)
 
-        val retrofit = (application as MainActivity).retrofit
+        val retrofit = (application as App).retrofit
         val emailService = retrofit.create(EmailService::class.java)
         emailValidationUseCase = EmailValidationUseCase(emailService)
 
