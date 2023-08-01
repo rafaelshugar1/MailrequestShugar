@@ -1,6 +1,6 @@
 package com.symetry.mailrequestshugar2.di
 
-import com.symetry.mailrequestshugar2.data.EmailService
+import com.symetry.mailrequestshugar.data.EmailService
 import com.symetry.mailvalidator.di.AppModule
 import dagger.Component
 

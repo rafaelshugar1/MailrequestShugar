@@ -1,4 +1,4 @@
-package com.symetry.mailrequestshugar2
+package com.symetry.mailrequestshugar
 
 import org.junit.Test
 

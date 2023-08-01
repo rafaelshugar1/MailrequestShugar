@@ -1,4 +1,4 @@
-package com.symetry.mailrequestshugar2.data
+package com.symetry.mailrequestshugar.data
 
 
 import retrofit2.Response

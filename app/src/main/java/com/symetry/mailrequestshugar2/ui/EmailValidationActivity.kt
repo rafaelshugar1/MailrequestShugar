@@ -1,35 +1,35 @@
 package com.symetry.mailvalidator.ui
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.symetry.mailrequestshugar2.R
 import com.symetry.mailrequestshugar2.App
-import com.symetry.mailrequestshugar2.data.EmailService
-import com.symetry.mailrequestshugar2.domain.EmailValidationUseCase
-import dagger.hilt.android.HiltAndroidApp
+import com.symetry.mailrequestshugar2.R
+import com.symetry.mailrequestshugar.data.EmailService
+import com.symetry.mailrequestshugar.domain.EmailValidationUseCase
+import com.symetry.mailrequestshugar2.databinding.ActivityEmailValidationBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+
+@AndroidEntryPoint
 class EmailValidationActivity : AppCompatActivity() {
     private lateinit var emailValidationUseCase: EmailValidationUseCase
+    private lateinit var emailService: EmailService
+    private lateinit var binding: ActivityEmailValidationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_email_validation)
+        binding = ActivityEmailValidationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val retrofit = (application as App).retrofit
-        val emailService = retrofit.create(EmailService::class.java)
+        val app = application as App
+        emailService = app.appComponent.getEmailService()
         emailValidationUseCase = EmailValidationUseCase(emailService)
 
-        val buttonValidate = findViewById<Button>(R.id.buttonValidate)
-        val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
-        val textViewResult = findViewById<TextView>(R.id.textViewResult)
-
-        buttonValidate.setOnClickListener {
-            val email = editTextEmail.text.toString()
+        binding.buttonValidate.setOnClickListener {
+            val email = binding.editTextEmail.text.toString()
             validateEmail(email)
         }
     }
@@ -38,7 +38,7 @@ class EmailValidationActivity : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.Main) {
             val isValid = emailValidationUseCase.validateEmail(email)
             val resultText = if (isValid) "Email válido" else "Email inválido"
-            textViewResult.text = resultText
+            binding.textViewResult.text = resultText
         }
     }
 }

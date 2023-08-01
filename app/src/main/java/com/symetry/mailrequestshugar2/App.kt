@@ -2,6 +2,7 @@ package com.symetry.mailrequestshugar2
 
 import android.app.Application
 import com.symetry.mailrequestshugar2.di.AppComponent
+import com.symetry.mailrequestshugar2.di.DaggerAppComponent
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -10,6 +11,6 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        //ppComponent = DaggerAppComponent
+        appComponent = DaggerAppComponent.create()
     }
 }

@@ -1,12 +1,11 @@
 package com.symetry.mailvalidator.di
 
-import com.symetry.mailrequestshugar2.data.EmailService
+import com.symetry.mailrequestshugar.data.EmailService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-import dagger.hilt.android.HiltAndroidApp
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
